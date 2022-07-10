@@ -1,13 +1,7 @@
 import 'dart:convert';
 
-Map<String, Products> productsFromJson(String str) => Map.from(json.decode(str))
-    .map((k, v) => MapEntry<String, Products>(k, Products.fromJson(v)));
-
-String productsToJson(Map<String, Products> data) => json.encode(
-    Map.from(data).map((k, v) => MapEntry<String, dynamic>(k, v.toJson())));
-
-class Products {
-  Products({
+class Product {
+  Product({
     required this.available,
     required this.name,
     this.picture,
@@ -18,15 +12,20 @@ class Products {
   String name;
   String? picture;
   double price;
+  String? id;
 
-  factory Products.fromJson(Map<String, dynamic> json) => Products(
+  factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Product.fromMap(Map<String, dynamic> json) => Product(
         available: json["available"],
         name: json["name"],
         picture: json["picture"],
         price: json["price"].toDouble(),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "available": available,
         "name": name,
         "picture": picture,
