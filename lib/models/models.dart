@@ -1,1 +1,1 @@
-export 'package:productos_app/models/products.dart';
+export 'package:productos_app/models/product.dart';
