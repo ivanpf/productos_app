@@ -178,6 +178,8 @@ class _BackgroundImage extends StatelessWidget {
   final String? url;
 
   @override
+  //Acá podría usar el getImage de product_image para asegurarme
+  //que llegue una uri y no un path al reconstuirse la pantalla
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),

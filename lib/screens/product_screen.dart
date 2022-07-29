@@ -66,7 +66,6 @@ class _ProductsScreenBody extends StatelessWidget {
                         if (pickedFile == null) {
                           return;
                         }
-                        print('pija ${pickedFile.path}');
                         productService
                             .updateSelectedProductImage(pickedFile.path);
                       },
